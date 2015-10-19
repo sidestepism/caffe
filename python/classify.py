@@ -103,6 +103,9 @@ def main(argv):
         caffe.set_mode_cpu()
         print("CPU mode")
 
+    caffe_root = '/Users/ryohei/gitrepos/caffe/'
+    mean = np.load(caffe_root + 'python/caffe/imagenet/ilsvrc_2012_mean.npy').mean(1).mean(1)
+
     # Make classifier.
     classifier = caffe.Classifier(args.model_def, args.pretrained_model,
             image_dims=image_dims, mean=mean,

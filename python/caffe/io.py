@@ -242,8 +242,8 @@ class Transformer:
         ms = mean.shape
         if mean.ndim == 1:
             # broadcast channels
-            if ms[0] != self.inputs[in_][1]:
-                raise ValueError('Mean channels incompatible with input.')
+#            if ms[0] != self.inputs[in_][1]:
+#                raise ValueError('Mean channels incompatible with input.')
             mean = mean[:, np.newaxis, np.newaxis]
         else:
             # elementwise mean
@@ -251,8 +251,8 @@ class Transformer:
                 ms = (1,) + ms
             if len(ms) != 3:
                 raise ValueError('Mean shape invalid')
-            if ms != self.inputs[in_][1:]:
-                raise ValueError('Mean shape incompatible with input shape.')
+#            if ms != self.inputs[in_][1:]:
+#                raise ValueError('Mean shape incompatible with input shape.')
         self.mean[in_] = mean
 
     def set_input_scale(self, in_, scale):
